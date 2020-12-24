@@ -16,11 +16,11 @@ import '@ionic/react/css/display.css';
 
 import logo from './logo.svg';
 import './App.css';
-import NotesView from './components/notesview';
+import Note from "./notes.js";
 
 function App() {
   return (
-    <NotesView />
+    <Note />
   );
 }
 
