@@ -17,6 +17,7 @@ import '@ionic/react/css/display.css';
 import logo from './logo.svg';
 import './App.css';
 import Note from "./notes.js";
+import { IonNotesView } from "./components/notesview";
 
 function App() {
   return (
