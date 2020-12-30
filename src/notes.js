@@ -10,6 +10,7 @@ import { Route, useParams } from "react-router-dom";
 export default function Note () {
     const [showcreate, setshowcreate] = useState(false);
 
+
     return (
         <IonPage> 
             <IonReactRouter>

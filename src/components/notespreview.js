@@ -1,20 +1,18 @@
 import React, {useState} from "react";
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import notes from "./../data/notes.json";
-import {IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonRow, IonCol } from '@ionic/react'
+import {IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonRow, IonCol, IonItemDivider } from '@ionic/react'
 import { useParser } from "./../utils/parser";
-import { IonNotesView } from "./notesview";
 
 
 export function IonNotesGrid () {
-    const [notesdata, setnotesdata] = useState(notes);
+    const [notesdata] = useState(notes);
 
     return(
         <IonRow>
             {notesdata.map((note, index) => {
                 console.log(note)
-               return(<IonCol key={index}>
+               return(<IonCol key={index} sizeSm="6" sizeMd="4" sizeLg="3">
                     <IonNotesPreview note={note} index={index} />
                 </IonCol>
                 );
@@ -26,16 +24,16 @@ export function IonNotesGrid () {
 
 export function IonNotesPreview ({note, index}) {
 
-    console.log(note.title);
+    const title = useParser(note.title);
 
-    console.log(`insideview ${note.title} ${note.body}`)
+    const body = useParser(note.body);
 
     return (
             <IonCard href={`/notes/${index}`} >
                 <IonCardHeader>
-                    <IonCardTitle>{note.title}</IonCardTitle>
+                    <IonCardTitle>{title}</IonCardTitle>
                 </IonCardHeader>
-                <IonCardContent>{note.body}</IonCardContent>
+                <IonCardContent>{body}</IonCardContent>
             </IonCard>
     )
 } 

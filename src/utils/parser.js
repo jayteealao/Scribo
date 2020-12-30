@@ -8,5 +8,5 @@ const parse = require('html-react-parser')
 export function useParser (htmlstring) {
     const [html] = useState(htmlstring);
 
-    return (parse(html))
+    return parse(html)
 };
