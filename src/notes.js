@@ -5,7 +5,8 @@ import CreateNote from './components/createnotes';
 import { IonPage, IonFab, IonFabButton, IonIcon, IonModal, IonButton, IonRouterOutlet } from "@ionic/react";
 import { add } from "ionicons/icons";
 import { IonReactRouter} from "@ionic/react-router";
-import { Route, useParams } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { FsIonGrid } from "./components/fsnotepreview";
 
 export default function Note () {
     const [showcreate, setshowcreate] = useState(false);
@@ -16,7 +17,7 @@ export default function Note () {
             <IonReactRouter>
                 <IonRouterOutlet>
                     <Route path="/notes/:notesid" component={IonNotesView} />
-                    <Route path="/" render={() => <IonNotesGrid />} exact />
+                    <Route path="/" render={() => <FsIonGrid />} exact />
                 </IonRouterOutlet>
             </IonReactRouter>
             <IonModal isOpen={showcreate} onDidDismiss={() => setshowcreate(false)}>

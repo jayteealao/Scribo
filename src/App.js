@@ -17,11 +17,15 @@ import '@ionic/react/css/display.css';
 import logo from './logo.svg';
 import './App.css';
 import Note from "./notes.js";
-import { IonNotesView } from "./components/notesview";
+import { FireStoreProvider } from "./hooks/useFirebase";
+import { firebaseapp } from "./utils/firebaseConfig";
 
 function App() {
   return (
-    <Note />
+    <FireStoreProvider firebaseapp={firebaseapp}>
+      <Note />
+    </FireStoreProvider>
+    
   );
 }
 
